@@ -7,13 +7,13 @@ function randomize_win(){
     color_pool = ['#738678', 'slate_gray', 'gray']
 }
 
-function scratch(cell, background){
+function scratch(cell, background = None){
     cell = document.getElementById(`${cell}`);
-    if (background /*check if background is an image*/){
+    if (background != None){
         cell.style.backgroundImage = background;
     }
 
     else{
-        cell.style.background_color
+        cell.style.background_color = #738678
     }
 }
