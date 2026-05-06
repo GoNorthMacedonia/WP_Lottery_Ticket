@@ -1,5 +1,6 @@
 /* Color Scheme - Major (Verdigris #43b3ae, Celadon #ACE1AF); Minor (Xanadu #738678, Viridian #40826d)*/
 
+body{
     background-color: #ACE1AF;
     display: flex;
     flex-direction: column;
