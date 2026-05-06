@@ -60,7 +60,7 @@ div.cell{
 
 div#instructions{
     margin-left: 2%;
-    width: 30vw;
+    max-width: 30vw;
     color: cyan;
     display: flex;
     align-items: center;
