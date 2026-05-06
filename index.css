@@ -1,7 +1,5 @@
 /* Color Scheme - Major (Verdigris #43b3ae, Celadon #ACE1AF); Minor (Xanadu #738678, Viridian #40826d)*/
-/* Flags that need recreated with 2/3 aspect ratio: Sao Tome, Kuwait, Brunei, Burundi, Grenada, Guyana, Kyrgyzstan, Liechtenstein, Marshall Islands, North Macedonia, Timor-Leste*/
 
-body{
     background-color: #ACE1AF;
     display: flex;
     flex-direction: column;
