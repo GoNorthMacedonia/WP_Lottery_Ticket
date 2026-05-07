@@ -1,14 +1,14 @@
 function randomize_win(){
-    tile_conditions = []
+    tile_conditions = [];
     flag_pool = ['brunei', 'burundi', 'grenada', 'guyana', 'kuwait', 'kyrgyzstan',
         'liechtenstein', 'malawi', 'marshall_islands', 'north_macedonia',
         'sao_tome_and_principe', 'saint_kitts_and_nevis', 'the_gambia', 'timor_leste', 'vanuatu'
-    ]
-    color_pool = ['#738678', 'slate_gray', 'gray']
+    ];
+    color_pool = ['#738678', 'slate_gray', 'gray'];
 
-    mult_pool = ['x1', 'x1','x1', 'x1', 'x1', 'x2', 'x2', 'x2', 'x3', 'x3', 'x4', 'x5', ]
+    mult_pool = ['x0.5', 'x1', 'x1', 'x1', 'x1', 'x1', 'x2', 'x2', 'x2', 'x3', 'x3', 'x4', 'x5'];
 
-    win = False
+    win = False;
 
     back_picker = Math.random() * 100;
     mult_picker = Math.random() * 100;
@@ -24,25 +24,34 @@ function randomize_win(){
             back_picker = Math.random() * 100;
         }
 
+        while (mult_picker >= 12){
+            mult_picker = Math.random() * 100;
+        }
+
         back_picker = Math.floor(back_picker);
-        background = flag_pool[back_picker]
+        background = flag_pool[back_picker];
+
+        mult_picker = Math.floor(mult_picker);
+        mult = mult_pool[mult_picker];
     }
 
     else{
         if(back_picker < 31.3){
-            background = color_pool[0]
+            background = color_pool[0];
         }
         else if(back_picker > 62.6){
-            background = color_pool[1]
+            background = color_pool[1];
         }
         else{
-            background = color_pool[2]
+            background = color_pool[2];
         }
+
+        mult = 'x0';
     }
 
-    tile_conditions.push(background, mult)
+    tile_conditions.push(background, mult);
 
-    return tile_conditions
+    return tile_conditions;
 }
 
 function scratch(cell, background, multiplier){
