@@ -59,8 +59,9 @@ div.cell{
     aspect-ratio: 3/2;
     margin: 1vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-end;
+
 }
 
 h4#price{
