@@ -1,25 +1,50 @@
+function createValues(){
+    const cells = document.getElementsByClassName('cell');
+    const values = ['50¢', '$1', '$1', '$1', '$1', '$1', '$2', '$2', '$2', '$3', '$3', '$4', '$5']
+    
+    try{
+        for (let i = 0; i > 16; i++){
+            console.log('test')
+            let value_picker = Math.random() * 100;
+            while (value_picker >= 12){
+                value_picker = Math.random() * 100;
+            }
+            value_picker = Math.floor(value_picker);
+
+            let value = values[value_picker];
+            let money = document.createElement('h3')
+            console.log(money)
+            money.textContent = value
+            cells[i].appendChild(money);
+        }
+    }
+    catch{
+        console.log('test')
+    }
+}
+
 function randomize_win(){
-    tile_conditions = [];
-    flag_pool = ['brunei', 'burundi', 'grenada', 'guyana', 'kuwait', 'kyrgyzstan',
+    const flag_pool = ['brunei', 'burundi', 'grenada', 'guyana', 'kuwait', 'kyrgyzstan',
         'liechtenstein', 'malawi', 'marshall_islands', 'north_macedonia',
         'sao_tome_and_principe', 'saint_kitts_and_nevis', 'the_gambia', 'timor_leste', 'vanuatu'
     ];
-    color_pool = ['#738678', 'slate_gray', 'gray'];
+    const color_pool = ['#738678', 'slategray', 'gray'];
 
-    mult_pool = ['x0.5', 'x1', 'x1', 'x1', 'x1', 'x1', 'x2', 'x2', 'x2', 'x3', 'x3', 'x4', 'x5'];
+    const mult_pool = ['x0.5', 'x1', 'x1', 'x1', 'x1', 'x1', 'x2', 'x2', 'x2', 'x3', 'x3', 'x4', 'x5'];
 
-    win = False;
+    let tile_conditions = [];
+    let win = false;
 
-    back_picker = Math.random() * 100;
-    mult_picker = Math.random() * 100;
+    let back_picker = Math.random() * 100;
+    let mult_picker = Math.random() * 100;
 
     if (Math.floor(back_picker) > 80){
         if (Math.floor(back_picker) < 86){
-            win = True;
+            win = true;
         }
     }
 
-    if (win == True){
+    if (win == true){
         while (back_picker >= 15){
             back_picker = Math.random() * 100;
         }
@@ -29,24 +54,24 @@ function randomize_win(){
         }
 
         back_picker = Math.floor(back_picker);
-        background = flag_pool[back_picker];
+        var background = flag_pool[back_picker];
 
         mult_picker = Math.floor(mult_picker);
-        mult = mult_pool[mult_picker];
+        var mult = mult_pool[mult_picker];
     }
 
     else{
         if(back_picker < 31.3){
-            background = color_pool[0];
+            var background = color_pool[0];
         }
         else if(back_picker > 62.6){
-            background = color_pool[1];
+            var background = color_pool[1];
         }
         else{
-            background = color_pool[2];
+            var background = color_pool[2];
         }
 
-        mult = 'x0';
+        var mult = 'x0';
     }
 
     tile_conditions.push(background, mult);
@@ -54,17 +79,23 @@ function randomize_win(){
     return tile_conditions;
 }
 
-function scratch(cell, background, multiplier){
-    cell = document.getElementById(`${cell}`);
-    mult = document.createElement('h5');
+function scratch(cell_id, background, multiplier){
+    const cell = document.getElementById(cell_id);
+    const mult = document.createElement('h5');
     mult.textContent = multiplier;
-    try{
-        cell.style.backgroundImage = background;
-        cell.appendChild(mult);
+    console.log(cell.style.backgroundColor)
+
+    if (cell.style.backgroundColor == '#43b3ae'){
+        cell.style.backgroundImage = `url("resources/images/flags/${background}.png")`;
+        if (cell.textContent.length <= 1){
+            cell.appendChild(mult);
+        }
         cell.style.justifyContent = 'spaceBetween';
     }
 
-    catch{
-        cell.style.background_color = background;
+    if (cell.style.backgroundColor == '#43b3ae'){
+        cell.style.backgroundColor = background;
     }
 }
+
+createValues()
