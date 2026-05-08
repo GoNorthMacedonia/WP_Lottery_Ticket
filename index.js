@@ -2,24 +2,19 @@ function createValues(){
     const cells = document.getElementsByClassName('cell');
     const values = ['50¢', '$1', '$1', '$1', '$1', '$1', '$2', '$2', '$2', '$3', '$3', '$4', '$5']
     
-    try{
-        for (let i = 0; i > 16; i++){
-            console.log('test')
-            let value_picker = Math.random() * 100;
-            while (value_picker >= 12){
-                value_picker = Math.random() * 100;
-            }
-            value_picker = Math.floor(value_picker);
-
-            let value = values[value_picker];
-            let money = document.createElement('h3')
-            console.log(money)
-            money.textContent = value
-            cells[i].appendChild(money);
-        }
-    }
-    catch{
+    for (let i = 0; i < 16; i++){
         console.log('test')
+        let value_picker = Math.random() * 100;
+        while (value_picker >= 12){
+            value_picker = Math.random() * 100;
+        }
+        value_picker = Math.floor(value_picker);
+
+        let value = values[value_picker];
+        let money = document.createElement('h3')
+        console.log(money)
+        money.textContent = value
+        cells[i].appendChild(money);
     }
 }
 
