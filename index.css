@@ -1,7 +1,7 @@
 /* Color Scheme - Major (Verdigris #43b3ae, Celadon #ACE1AF); Minor (Xanadu #738678, Viridian #40826d)*/
 
 body{
-    background-color: #ACE1AF;
+    background-color: #63b189;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -61,7 +61,12 @@ div.cell{
     display: flex;
     justify-content: flex-start;
     align-items: flex-end;
+}
 
+h3.cell_text{
+    margin-bottom: 0%;
+    font-size: 2vmin;
+    color: #0F4645;
 }
 
 h4#price{

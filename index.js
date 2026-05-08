@@ -3,7 +3,6 @@ function createValues(){
     const values = ['50¢', '$1', '$1', '$1', '$1', '$1', '$2', '$2', '$2', '$3', '$3', '$4', '$5']
     
     for (let i = 0; i < 16; i++){
-        console.log('test')
         let value_picker = Math.random() * 100;
         while (value_picker >= 12){
             value_picker = Math.random() * 100;
@@ -11,9 +10,9 @@ function createValues(){
         value_picker = Math.floor(value_picker);
 
         let value = values[value_picker];
-        let money = document.createElement('h3')
-        console.log(money)
-        money.textContent = value
+        let money = document.createElement('h3');
+        money.textContent = value;
+        money.className = 'cell_text'
         cells[i].appendChild(money);
     }
 }
@@ -74,22 +73,22 @@ function randomize_win(){
     return tile_conditions;
 }
 
-function scratch(cell_id, background, multiplier){
+function scratch(cell_id, background, multiplier, win){
     const cell = document.getElementById(cell_id);
     const mult = document.createElement('h5');
     mult.textContent = multiplier;
-    console.log(cell.style.backgroundColor)
+    cell.style.backgroundColor = '#43b3ae'
 
     if (cell.style.backgroundColor == '#43b3ae'){
-        cell.style.backgroundImage = `url("resources/images/flags/${background}.png")`;
-        if (cell.textContent.length <= 1){
+        if (win == true){
+            cell.style.backgroundImage = `url("resources/images/flags/${background}.png")`;
             cell.appendChild(mult);
-        }
-        cell.style.justifyContent = 'spaceBetween';
-    }
 
-    if (cell.style.backgroundColor == '#43b3ae'){
-        cell.style.backgroundColor = background;
+            cell.style.justifyContent = 'spaceBetween';
+        }
+        else{
+            cell.style.backgroundColor = background;
+        }
     }
 }
 
