@@ -37,6 +37,7 @@ div#ticket{
 
 h1#title{
     color: #ACE1AF;
+    font-size: 7vmin;
 }
 
 div#grid{
@@ -93,4 +94,5 @@ div#instructions{
 
 div#winnings{
     color: #0F4645;
+    font-size: 3vmin;
 }
