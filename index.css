@@ -76,6 +76,11 @@ h4#price{
     text-align: start;
 }
 
+h2#subtitle{
+    margin-top: 3vmin;
+    margin-bottom: 3vmin;
+}
+
 div#instructions{
     margin-left: 2%;
     max-width: 30vw;
