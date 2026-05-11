@@ -68,23 +68,26 @@ function randomize_win(){
         var mult = 'x0';
     }
 
-    tile_conditions.push(background, mult);
+    tile_conditions.push(background, mult, win);
 
     return tile_conditions;
 }
 
 function scratch(cell_id, background, multiplier, win){
     const cell = document.getElementById(cell_id);
-    const mult = document.createElement('h5');
+    const mult = document.createElement('h3');
     mult.textContent = multiplier;
-    cell.style.backgroundColor = '#43b3ae'
+    if (cell.style.backgroundColor == ''){
+        cell.style.backgroundColor = 'rgb(67, 179, 174)'
+    }
+    console.log(cell.style.backgroundColor)
 
-    if (cell.style.backgroundColor == '#43b3ae'){
+    if (cell.style.backgroundColor == 'rgb(67, 179, 174)'){
+        cell.appendChild(mult);
+        mult.className = 'cell_text'
+        mult.id = 'mult'
         if (win == true){
             cell.style.backgroundImage = `url("resources/images/flags/${background}.png")`;
-            cell.appendChild(mult);
-
-            cell.style.justifyContent = 'spaceBetween';
         }
         else{
             cell.style.backgroundColor = background;
