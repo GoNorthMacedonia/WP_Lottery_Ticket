@@ -88,9 +88,9 @@ function scratch(cell_info){ //cell_id, background, multiplier, win
         mult.className = 'cell_text'
         mult.id = 'mult';
         if (cell_info[3] == true){
-            cell.style.backgroundColor = ''
-            console.log('test');
+            cell.style.backgroundColor = '';
             cell.style.backgroundImage = `url("resources/images/flags/${cell_info[1]}.png")`;
+            cell.style.backgroundSize = '100%, 100%';
         }
         else{
             cell.style.backgroundColor = cell_info[1];
