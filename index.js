@@ -78,9 +78,10 @@ function scratch(cell_id, background, multiplier, win){
     const mult = document.createElement('h3');
     mult.textContent = multiplier;
     if (cell.style.backgroundColor == ''){
-        cell.style.backgroundColor = 'rgb(67, 179, 174)'
+        if (cell.style.backgroundImage == ''){
+            cell.style.backgroundColor = 'rgb(67, 179, 174)'
+        }
     }
-    console.log(cell.style.backgroundColor)
 
     if (cell.style.backgroundColor == 'rgb(67, 179, 174)'){
         cell.appendChild(mult);
