@@ -52,9 +52,7 @@ function randomize_win(){
 
         mult_picker = Math.floor(mult_picker);
         var mult = mult_pool[mult_picker];
-    }
-
-    else{
+    }else{
         if(back_picker < 31.3){
             var background = color_pool[0];
         }
@@ -73,10 +71,12 @@ function randomize_win(){
     return tile_conditions;
 }
 
-function scratch(cell_id, background, multiplier, win){
-    const cell = document.getElementById(cell_id);
+function scratch(cell_info){ //cell_id, background, multiplier, win
+    const cell = document.getElementById(cell_info[0]);
     const mult = document.createElement('h3');
-    mult.textContent = multiplier;
+
+    mult.textContent = cell_info[2];
+
     if (cell.style.backgroundColor == ''){
         if (cell.style.backgroundImage == ''){
             cell.style.backgroundColor = 'rgb(67, 179, 174)'
@@ -86,12 +86,14 @@ function scratch(cell_id, background, multiplier, win){
     if (cell.style.backgroundColor == 'rgb(67, 179, 174)'){
         cell.appendChild(mult);
         mult.className = 'cell_text'
-        mult.id = 'mult'
-        if (win == true){
-            cell.style.backgroundImage = `url("resources/images/flags/${background}.png")`;
+        mult.id = 'mult';
+        if (cell_info[3] == true){
+            cell.style.backgroundColor = ''
+            console.log('test');
+            cell.style.backgroundImage = `url("resources/images/flags/${cell_info[1]}.png")`;
         }
         else{
-            cell.style.backgroundColor = background;
+            cell.style.backgroundColor = cell_info[1];
         }
     }
 }
