@@ -17,39 +17,43 @@
         </div>
         <div id = 'ticket'>
             <div id = 'instructions'>
-                <h4 id = 'price'>$5</h4>
+                <h4 id = 'price'>$3</h4>
                 <h2 id = 'subtitle'>Flag Mania!</h2>
                 <p>Each cell has a small chance to have a flag underneath it. When a flag is revealed, you get a random amount of money from that cell which is calculated by multiplying the number in the bottom left of the cell with a multiplyer that will appear in the bottom right of the cell when the flag is revealed.</p>
             </div>
             <div id = 'grid'>
                 <div class = 'row'>
-                    <div class = 'cell' id = 'A' onclick="scratch(randomize_win().toSpliced(0, 0, 'A'))"></div>
-                    <div class = 'cell' id = 'B' onclick="scratch(randomize_win().toSpliced(0, 0, 'B'))"></div>
-                    <div class = 'cell' id = 'C' onclick="scratch(randomize_win().toSpliced(0, 0, 'C'))"></div>
-                    <div class = 'cell' id = 'D' onclick="scratch(randomize_win().toSpliced(0, 0, 'D'))"></div>
+                    <div class = 'cell' id = 'A' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'A'))"></div>
+                    <div class = 'cell' id = 'B' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'B'))"></div>
+                    <div class = 'cell' id = 'C' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'C'))"></div>
+                    <div class = 'cell' id = 'D' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'D'))"></div>
                 </div>
                 <div class = 'row'>
-                    <div class = 'cell' id = 'E' onclick="scratch(randomize_win().toSpliced(0, 0, 'E'))"></div>
-                    <div class = 'cell' id = 'F' onclick="scratch(randomize_win().toSpliced(0, 0, 'F'))"></div>
-                    <div class = 'cell' id = 'G' onclick="scratch(randomize_win().toSpliced(0, 0, 'G'))"></div>
-                    <div class = 'cell' id = 'H' onclick="scratch(randomize_win().toSpliced(0, 0, 'H'))"></div>
+                    <div class = 'cell' id = 'E' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'E'))"></div>
+                    <div class = 'cell' id = 'F' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'F'))"></div>
+                    <div class = 'cell' id = 'G' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'G'))"></div>
+                    <div class = 'cell' id = 'H' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'H'))"></div>
                 </div>
                 <div class = 'row'>
-                    <div class = 'cell' id = 'I' onclick="scratch(randomize_win().toSpliced(0, 0, 'I'))"></div>
-                    <div class = 'cell' id = 'J' onclick="scratch(randomize_win().toSpliced(0, 0, 'J'))"></div>
-                    <div class = 'cell' id = 'K' onclick="scratch(randomize_win().toSpliced(0, 0, 'K'))"></div>
-                    <div class = 'cell' id = 'L' onclick="scratch(randomize_win().toSpliced(0, 0, 'L'))"></div>
+                    <div class = 'cell' id = 'I' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'I'))"></div>
+                    <div class = 'cell' id = 'J' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'J'))"></div>
+                    <div class = 'cell' id = 'K' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'K'))"></div>
+                    <div class = 'cell' id = 'L' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'L'))"></div>
                 </div>
                 <div class = 'row'>
-                    <div class = 'cell' id = 'M' onclick="scratch(randomize_win().toSpliced(0, 0, 'M'))"></div>
-                    <div class = 'cell' id = 'N' onclick="scratch(randomize_win().toSpliced(0, 0, 'N'))"></div>
-                    <div class = 'cell' id = 'O' onclick="scratch(randomize_win().toSpliced(0, 0, 'O'))"></div>
-                    <div class = 'cell' id = 'P' onclick="scratch(randomize_win().toSpliced(0, 0, 'P'))"></div>
+                    <div class = 'cell' id = 'M' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'M'))"></div>
+                    <div class = 'cell' id = 'N' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'N'))"></div>
+                    <div class = 'cell' id = 'O' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'O'))"></div>
+                    <div class = 'cell' id = 'P' onclick="scratch(this, randomize_win().toSpliced(0, 0, 'P'))"></div>
                 </div>
             </div>
         </div>
-        <div id = 'winnings'>
-            <h2>Ticket Winnings: $0</h2>
+        <div id = misc>
+            <h2 id = 'winnings'>Ticket Winnings: $<span id = 'current_money'>0</span></h2>
+
+            <div id = reset_button onclick = "reset()">
+                <h1>Refresh Ticket</h1>
+            </div>
         </div>
         <script src='index.js'></script>
     </body>
