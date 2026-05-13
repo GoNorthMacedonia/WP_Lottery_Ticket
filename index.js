@@ -117,5 +117,19 @@ function scratch(tile, cell_info){ //cell_id, background, multiplier, win
 createValues()
 
 function reset(){
-    const cells = document.getElementsByClassName('cell')
+    const cells = document.getElementsByClassName('cell');
+    let finished = true;
+
+    for (let i = 0; i < 16; i++){
+        if (cells[i].style.backgroundColor == 'rgb(67, 179, 174)'){
+            finished = false;
+        }
+    }
+
+    if (finished == true){
+        createValues()
+        for (let i = 0; i < 16; i++){
+            cells[i].style.backgroundColor = 'rgb(67, 179, 174)'
+        }
+    }
 }
