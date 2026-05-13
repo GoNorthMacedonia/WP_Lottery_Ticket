@@ -13,6 +13,7 @@ function createValues(){
         let money = document.createElement('h3');
         money.textContent = value;
         money.className = 'cell_text'
+        money.id = 'value'
         cells[i].appendChild(money);
     }
 }
@@ -71,7 +72,7 @@ function randomize_win(){
     return tile_conditions;
 }
 
-function scratch(cell_info){ //cell_id, background, multiplier, win
+function scratch(tile, cell_info){ //cell_id, background, multiplier, win
     const cell = document.getElementById(cell_info[0]);
     const mult = document.createElement('h3');
 
@@ -91,6 +92,21 @@ function scratch(cell_info){ //cell_id, background, multiplier, win
             cell.style.backgroundColor = '';
             cell.style.backgroundImage = `url("resources/images/flags/${cell_info[1]}.png")`;
             cell.style.backgroundSize = '100%, 100%';
+
+            let value = tile.children[0]
+            let multi = tile.children[1]
+
+            const winnings = document.getElementById('current_money')
+            if (value == '50¢'){
+                clean_value = .50
+            }else{
+                clean_value = Number(value.textContent.replace('$', ''))
+            }
+            clean_multi = Number(multi.textContent.replace('x', ''))
+
+            winnings.textContent = (clean_value * clean_multi) + Number(winnings.textContent)
+            console.log(clean_value, clean_multi, winnings.textContent)
+
         }
         else{
             cell.style.backgroundColor = cell_info[1];
@@ -99,3 +115,7 @@ function scratch(cell_info){ //cell_id, background, multiplier, win
 }
 
 createValues()
+
+function reset(){
+    const cells = document.getElementsByClassName('cell')
+}
