@@ -23,7 +23,7 @@ img.header_flags{
     border-color: white;
     object-fit: contain;
     margin: 2%;
-    width: 10vw;
+    width: 7vw;
     height: auto;
     border-radius: 5%;
 }
@@ -100,6 +100,8 @@ div#misc{
 
 div#reset_button{
     background-color: #0F4645;
+    width: fit-content;
+    font-size: 1.5vmin;
     padding-left: 2vmin;
     padding-right: 2vmin;
     border-radius: 25%;
@@ -107,9 +109,16 @@ div#reset_button{
     border-width: 1vmin;
     border-color: #208a9d;
     color: cyan;
+    cursor: crosshair;
 }
 
 h2#winnings{
     color: #0F4645;
-    font-size: 3vmin;
+    font-size: 3.14159265358vmin;
+}
+
+h5#notice{
+    color: #0F4645;
+    margin-top: 5%;
+    font-size: 2vmin;
 }

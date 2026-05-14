@@ -12,8 +12,8 @@ function createValues(){
         let value = values[value_picker];
         let money = document.createElement('h3');
         money.textContent = value;
-        money.className = 'cell_text'
-        money.id = 'value'
+        money.className = 'cell_text';
+        money.id = 'value';
         cells[i].appendChild(money);
     }
 }
@@ -80,32 +80,32 @@ function scratch(tile, cell_info){ //cell_id, background, multiplier, win
 
     if (cell.style.backgroundColor == ''){
         if (cell.style.backgroundImage == ''){
-            cell.style.backgroundColor = 'rgb(67, 179, 174)'
+            cell.style.backgroundColor = 'rgb(67, 179, 174)';
         }
     }
 
     if (cell.style.backgroundColor == 'rgb(67, 179, 174)'){
         cell.appendChild(mult);
-        mult.className = 'cell_text'
+        mult.className = 'cell_text';
         mult.id = 'mult';
         if (cell_info[3] == true){
             cell.style.backgroundColor = '';
             cell.style.backgroundImage = `url("resources/images/flags/${cell_info[1]}.png")`;
             cell.style.backgroundSize = '100%, 100%';
 
-            let value = tile.children[0]
-            let multi = tile.children[1]
+            let value = tile.children[0];
+            let multi = tile.children[1];
 
-            const winnings = document.getElementById('current_money')
+            const winnings = document.getElementById('current_money');
             if (value == '50¢'){
-                clean_value = .50
+                clean_value = .50;
             }else{
-                clean_value = Number(value.textContent.replace('$', ''))
+                clean_value = Number(value.textContent.replace('$', ''));
             }
-            clean_multi = Number(multi.textContent.replace('x', ''))
+            clean_multi = Number(multi.textContent.replace('x', ''));
 
-            winnings.textContent = (clean_value * clean_multi) + Number(winnings.textContent)
-            console.log(clean_value, clean_multi, winnings.textContent)
+            winnings.textContent = (clean_value * clean_multi) + Number(winnings.textContent);
+            console.log(clean_value, clean_multi, winnings.textContent);
 
         }
         else{
@@ -121,15 +121,12 @@ function reset(){
     let finished = true;
 
     for (let i = 0; i < 16; i++){
-        if (cells[i].style.backgroundColor == 'rgb(67, 179, 174)'){
+        if (cells[i].children.length == 1){
             finished = false;
         }
     }
 
     if (finished == true){
-        createValues()
-        for (let i = 0; i < 16; i++){
-            cells[i].style.backgroundColor = 'rgb(67, 179, 174)'
-        }
+        window.location.reload();
     }
 }
